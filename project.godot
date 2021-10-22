@@ -11,8 +11,12 @@ config_version=4
 [application]
 
 config/name="godot jam"
-run/main_scene="res://Root.tscn"
+run/main_scene="res://scenes/Root.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Globals="*res://scripts/Globals.gd"
 
 [display]
 

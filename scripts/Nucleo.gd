@@ -1,6 +1,6 @@
 extends Node2D
 
-var ilhaCena = preload("res://ilha.tscn")
+var ilhaCena = preload("res://scenes/ilha.tscn")
 
 func _ready():
 	for ilha in $ilhas.get_children():
@@ -13,10 +13,8 @@ func _process(delta):
 		var ilha = $ilhas.get_child(i)
 		ilha.position = polar2cartesian(150+ilha.dist, i*(2*PI/length)-PI/2)
 		var linha = $linhas.get_child(i)
-		linha.set_point_position(1,ilha.position)
+		linha.set_point_position(1, ilha.position)
 
-	if Input.is_action_pressed("space"):
-		add_ilha()
 
 func _on_value_changed(ilha, new_value):
 	var length = $ilhas.get_child_count()
@@ -34,7 +32,6 @@ func create_line(ilha):
 	line.add_point(Vector2.ONE*15)
 	
 	line.width = 10
-	print(line.width)
 	$linhas.add_child(line)
 
 func add_ilha():

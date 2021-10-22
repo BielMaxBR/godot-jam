@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/city.png-93720b2a7c012586f730831b50dcc97a.stex"
+path="res://.import/Ilha_de_Concreto_2_.png-5d5f08e0d7e6f677b418d768d4c322c0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://city.png"
-dest_files=[ "res://.import/city.png-93720b2a7c012586f730831b50dcc97a.stex" ]
+source_file="res://sprites/ilhas/Ilha_de_Concreto_2_.png"
+dest_files=[ "res://.import/Ilha_de_Concreto_2_.png-5d5f08e0d7e6f677b418d768d4c322c0.stex" ]
 
 [params]
 

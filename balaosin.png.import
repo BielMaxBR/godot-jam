@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ilha_de_Ferias.png-4a039355d6dacbd82ac1bc927d7b5014.stex"
+path="res://.import/balaosin.png-33db5f9b9a47e5d686749bb309afb152.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Ilha_de_Ferias.png"
-dest_files=[ "res://.import/Ilha_de_Ferias.png-4a039355d6dacbd82ac1bc927d7b5014.stex" ]
+source_file="res://balaosin.png"
+dest_files=[ "res://.import/balaosin.png-33db5f9b9a47e5d686749bb309afb152.stex" ]
 
 [params]
 
