@@ -36,16 +36,13 @@ func update_islands() -> void:
 #
 #
 #func _ready():
-<<<<<<< Updated upstream
 #	for island in $islands.get_children():
 #		island.connect("value_changed", self, "_on_value_changed")
 #		create_connector(island)
 #
-=======
 #	for island in $Islands.get_children():
 #		island.connect("value_changed", self, "_on_value_changed")
 
->>>>>>> Stashed changes
 #func _process(delta):
 #	var length = $ilhas.get_child_count()
 #	for i in length:

@@ -15,36 +15,3 @@ script = ExtResource( 3 )
 texture = ExtResource( 2 )
 
 [node name="Islands" type="Node2D" parent="Core"]
-<<<<<<< Updated upstream
-
-[node name="ilha1" parent="Core/Islands" instance=ExtResource( 1 )]
-
-[node name="ilha2" parent="Core/Islands" instance=ExtResource( 1 )]
-
-[node name="ilha3" parent="Core/Islands" instance=ExtResource( 1 )]
-
-[node name="ilha4" parent="Core/Islands" instance=ExtResource( 1 )]
-
-[node name="ilha5" parent="Core/Islands" instance=ExtResource( 1 )]
-
-[node name="ilha6" parent="Core/Islands" instance=ExtResource( 1 )]
-
-[node name="ilha7" parent="Core/Islands" instance=ExtResource( 1 )]
-
-[node name="ilha8" parent="Core/Islands" instance=ExtResource( 1 )]
-
-[node name="ilha9" parent="Core/Islands" instance=ExtResource( 1 )]
-
-[node name="ilha10" parent="Core/Islands" instance=ExtResource( 1 )]
-
-[node name="ilha11" parent="Core/Islands" instance=ExtResource( 1 )]
-
-[node name="ilha12" parent="Core/Islands" instance=ExtResource( 1 )]
-
-[node name="ilha13" parent="Core/Islands" instance=ExtResource( 1 )]
-
-[node name="ilha14" parent="Core/Islands" instance=ExtResource( 1 )]
-
-[node name="ilha15" parent="Core/Islands" instance=ExtResource( 1 )]
-=======
->>>>>>> Stashed changes
