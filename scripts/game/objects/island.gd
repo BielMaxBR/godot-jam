@@ -21,6 +21,8 @@ var ISLANDS_TEXTURE = {
 func _ready():
 	$Connector/ConnectorAnimation.play("connector")
 	$Level/LevelAnimation.play("level")
+	randomize()
+	$Timer.wait_time = rand_range(Globals.min_time, Globals.max_time)
 
 func _physics_process(delta: float) -> void:
 	update_distance()
@@ -28,11 +30,13 @@ func _physics_process(delta: float) -> void:
 
 func update_level_textures() -> void:
 	$Level.set_animation(str(level))
+	print(level)
 	
 func update_distance() -> void:
 	var new_distance = distance + (level * Globals.step_size)
-	self.distance = new_distance
 
+	emit_signal("distance_changed", self, new_distance)
+	self.distance = new_distance
 
 func level_up() -> void:
 	self.level = clamp(level+1,-2,2)
@@ -52,8 +56,12 @@ func set_level(_level: int) -> void:
 
 func set_distance(_distance: float) -> void:
 	distance = _distance
-	emit_signal("distance_changed", self, distance)
 
+func _on_Timer_timeout():
+	randomize()
+	$Timer.wait_time = rand_range(Globals.min_time, Globals.max_time)
+
+	self.level += clamp(round(rand_range(-Globals.lvl_floating, Globals.lvl_floating)),-2,2)
 
 func _on_TextureButton_gui_input(event) -> void:
 	if event is InputEventMouseButton:

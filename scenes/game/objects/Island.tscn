@@ -16,27 +16,27 @@ atlas = ExtResource( 3 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 4 )
+atlas = ExtResource( 5 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 5 )
+atlas = ExtResource( 6 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 24, 24 )
 
 [sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 4 )
 region = Rect2( 24, 0, 24, 24 )
 
 [sub_resource type="SpriteFrames" id=9]
@@ -48,8 +48,8 @@ animations = [ {
 }, {
 "frames": [ SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
-"name": "-1",
-"speed": 2.0
+"name": "-2",
+"speed": 4.0
 }, {
 "frames": [  ],
 "loop": true,
@@ -58,13 +58,13 @@ animations = [ {
 }, {
 "frames": [ SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
-"name": "-2",
-"speed": 4.0
+"name": "1",
+"speed": 6.0
 }, {
 "frames": [ SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
-"name": "1",
-"speed": 6.0
+"name": "-1",
+"speed": 2.0
 } ]
 
 [sub_resource type="Animation" id=10]
@@ -141,4 +141,9 @@ gradient = SubResource( 11 )
 root_node = NodePath("../..")
 anims/connector = SubResource( 12 )
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [connection signal="gui_input" from="Texture" to="." method="_on_TextureButton_gui_input"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

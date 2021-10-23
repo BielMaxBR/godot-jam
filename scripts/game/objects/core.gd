@@ -19,6 +19,8 @@ func add_island(type: int) -> void:
 	island_instance.set_name(str(island_instance.get_instance_id()))
 	island_instance.set_island_type(type)
 	$Islands.add_child(island_instance)
+	island_instance.connect("distance_changed", self, "_on_distance_changed")
+
 # Atualiza as ilhas
 func update_islands() -> void:
 	var length: int = $Islands.get_child_count()
@@ -30,6 +32,16 @@ func update_islands() -> void:
 		island_connector.set_point_position(1, island_connector.to_local(global_position))
 	# Just fun \/
 	angle += 0.1
+
+func _on_distance_changed(island, new_distance):
+	var length = $Islands.get_child_count()
+	var diff = new_distance - island.distance
+	var sub = length*diff/(length-1)
+
+	for otherIsland in $Islands.get_children():
+		if otherIsland != island:
+			otherIsland.distance -= sub
+
 #
 ## Atualiza os conectores
 #func update_connectors() -> void:
