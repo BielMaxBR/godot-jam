@@ -1,16 +1,19 @@
 extends Node2D
 
-export(float) var dist = 0
+export(float) var distance = 0
 export(float) var level = 0
 
 
 signal value_changed(ilha, value)
 
-func _process(delta):
-	var new_dist = dist + (level*Globals.step_size)
+func _ready():
+	$AnimationPlayer.play("connector")
 
-	emit_signal("value_changed", self, new_dist)
-	dist = new_dist
+func _process(delta):
+	var new_distance = distance + (level*Globals.step_size)
+
+	emit_signal("value_changed", self, new_distance)
+	distance = new_distance
 
 func _on_TextureButton_gui_input(event):
 	if event is InputEventMouseButton:

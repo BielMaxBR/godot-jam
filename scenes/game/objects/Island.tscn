@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://sprites/ilhas/Ilha_de_Concreto_2_.png" type="Texture" id=1]
+[ext_resource path="res://scripts/game/objects/island.gd" type="Script" id=2]
+[ext_resource path="res://balaosin.png" type="Texture" id=3]
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.236816, 0.325352, 0.757813, 1, 0.4, 0.501961, 1, 1 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "connector"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Connector:width")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 2.0, 10.0 ]
+}
+
+[node name="Island" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="balaosin" type="Sprite" parent="."]
+position = Vector2( -2.42006, -74.3016 )
+texture = ExtResource( 3 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = -64.0
+margin_top = -64.0
+margin_right = 64.0
+margin_bottom = 64.0
+rect_pivot_offset = Vector2( 64, 64 )
+mouse_default_cursor_shape = 2
+button_mask = 3
+texture_normal = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Connector" type="Line2D" parent="."]
+z_index = -1
+points = PoolVector2Array( 0, 0, 0, 0 )
+width = 3.06667
+default_color = Color( 0.4, 0.501961, 1, 1 )
+gradient = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/connector = SubResource( 1 )
+
+[connection signal="gui_input" from="TextureButton" to="." method="_on_TextureButton_gui_input"]
