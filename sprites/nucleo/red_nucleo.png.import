@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ilha_SLA.png-13f280e8f00948ad1bc6d4b5840dbeb9.stex"
+path="res://.import/red_nucleo.png-e10834232febf723097726972187ce62.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/islands/Ilha_SLA.png"
-dest_files=[ "res://.import/Ilha_SLA.png-13f280e8f00948ad1bc6d4b5840dbeb9.stex" ]
+source_file="res://sprites/nucleo/red_nucleo.png"
+dest_files=[ "res://.import/red_nucleo.png-e10834232febf723097726972187ce62.stex" ]
 
 [params]
 
