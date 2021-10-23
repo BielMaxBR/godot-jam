@@ -4,46 +4,48 @@ var island_scene: PackedScene = preload("res://scenes/game/objects/Island.tscn")
 
 # Just fun \/
 var angle = 0
-var dist = 0
-var inv = false
 # Just fun /\
+
+func _ready():
+	for i in 8:
+		add_island(randi() % 2)
 
 func _physics_process(delta):
 	#if Input.is_action_just_pressed("space"):
 		update_islands()
-		
-		# Just fun \/
-		if inv:
-			dist -= 0.1
-		else:
-			dist += 0.1
-		
-		if dist >= 50:
-			inv = true
-		elif dist <= 0:
-			inv = false
-		# Just fun /\
 
+func add_island(type: int) -> void:
+	var island_instance = island_scene.instance()
+	island_instance.set_name(str(island_instance.get_instance_id()))
+	island_instance.set_island_type(type)
+	$Islands.add_child(island_instance)
 # Atualiza as ilhas
 func update_islands() -> void:
 	var length: int = $Islands.get_child_count()
 	for i in length:
 		var island: Node2D = $Islands.get_child(i)
 		var island_connector: Line2D = island.get_node("Connector")
-		island.position = polar2cartesian(dist+150+island.distance, (i*(2*PI/length)-PI/2) + deg2rad(angle)) # polar2cartesian(150 + island.distance, i*(2*PI/length)-PI/2)
+		var new_position = polar2cartesian(150 + island.distance, i*(2*PI/length)-PI/2 + deg2rad(angle))
+		island.position = new_position
 		island_connector.set_point_position(1, island_connector.to_local(global_position))
 	# Just fun \/
-	angle += 0.5
+	angle += 0.1
 #
 ## Atualiza os conectores
 #func update_connectors() -> void:
 #
 #
 #func _ready():
+<<<<<<< Updated upstream
 #	for island in $islands.get_children():
 #		island.connect("value_changed", self, "_on_value_changed")
 #		create_connector(island)
 #
+=======
+#	for island in $Islands.get_children():
+#		island.connect("value_changed", self, "_on_value_changed")
+
+>>>>>>> Stashed changes
 #func _process(delta):
 #	var length = $ilhas.get_child_count()
 #	for i in length:

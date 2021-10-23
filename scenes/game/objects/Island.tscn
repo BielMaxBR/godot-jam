@@ -1,14 +1,93 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=19 format=2]
 
-[ext_resource path="res://sprites/ilhas/Ilha_de_Concreto_2_.png" type="Texture" id=1]
+[ext_resource path="res://sprites/islands/Ilha_Cidade.png" type="Texture" id=1]
 [ext_resource path="res://scripts/game/objects/island.gd" type="Script" id=2]
-[ext_resource path="res://balaosin.png" type="Texture" id=3]
+[ext_resource path="res://sprites/levels/2.png" type="Texture" id=3]
+[ext_resource path="res://sprites/levels/-1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/levels/-2.png" type="Texture" id=5]
+[ext_resource path="res://sprites/levels/1.png" type="Texture" id=6]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 5 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 6 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "2",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "-1",
+"speed": 2.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "0",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "-2",
+"speed": 4.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "1",
+"speed": 6.0
+} ]
+
+[sub_resource type="Animation" id=10]
+resource_name = "level"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2.5, -75 ), Vector2( -2.5, -80 ), Vector2( -2.5, -75 ) ]
+}
+
+[sub_resource type="Gradient" id=11]
 colors = PoolColorArray( 0.236816, 0.325352, 0.757813, 1, 0.4, 0.501961, 1, 1 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "connector"
+[sub_resource type="Animation" id=12]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -27,11 +106,7 @@ tracks/0/keys = {
 [node name="Island" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="balaosin" type="Sprite" parent="."]
-position = Vector2( -2.42006, -74.3016 )
-texture = ExtResource( 3 )
-
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="Texture" type="TextureButton" parent="."]
 margin_left = -64.0
 margin_top = -64.0
 margin_right = 64.0
@@ -44,14 +119,26 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Level" type="AnimatedSprite" parent="."]
+position = Vector2( -2.5, -78.2171 )
+z_index = 1
+z_as_relative = false
+frames = SubResource( 9 )
+animation = "0"
+playing = true
+
+[node name="LevelAnimation" type="AnimationPlayer" parent="Level"]
+anims/level = SubResource( 10 )
+
 [node name="Connector" type="Line2D" parent="."]
 z_index = -1
 points = PoolVector2Array( 0, 0, 0, 0 )
-width = 3.06667
+width = 2.0
 default_color = Color( 0.4, 0.501961, 1, 1 )
-gradient = SubResource( 2 )
+gradient = SubResource( 11 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/connector = SubResource( 1 )
+[node name="ConnectorAnimation" type="AnimationPlayer" parent="Connector"]
+root_node = NodePath("../..")
+anims/connector = SubResource( 12 )
 
-[connection signal="gui_input" from="TextureButton" to="." method="_on_TextureButton_gui_input"]
+[connection signal="gui_input" from="Texture" to="." method="_on_TextureButton_gui_input"]

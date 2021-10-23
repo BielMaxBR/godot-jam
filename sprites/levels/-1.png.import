@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ilha_de_Ferias.png-ed917a35f7e7573df2fad6359252e5c1.stex"
+path="res://.import/-1.png-fc1d27079e43cec2d08a561d31d1ed47.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ilhas/Ilha_de_Ferias.png"
-dest_files=[ "res://.import/Ilha_de_Ferias.png-ed917a35f7e7573df2fad6359252e5c1.stex" ]
+source_file="res://sprites/levels/-1.png"
+dest_files=[ "res://.import/-1.png-fc1d27079e43cec2d08a561d31d1ed47.stex" ]
 
 [params]
 
