@@ -28,13 +28,20 @@ func update_islands() -> void:
 	for i in length:
 		var island: Node2D = $Islands.get_child(i)
 		var island_connector: Line2D = island.get_node("Connector")
-		var new_position = polar2cartesian(150 + island.distance, i*(2*PI/length)-PI/2 + deg2rad(angle))
+		var new_position = polar2cartesian(200 + island.distance, i*(2*PI/length)-PI/2 + deg2rad(angle))
 		island.position = new_position
 		island_connector.set_point_position(1, island_connector.to_local(global_position))
-		if island.distance <= -30:# and island.distance <= -50:
-			danger_level = 1
-		if island.distance <= -50:
-			danger_level = 2
+		
+		if island.distance < 0:
+			if island.distance <= -30:
+				danger_level = 1
+			if island.distance <= -50:
+				danger_level = 2
+		if island.distance > 0:
+			if island.distance >= 30:
+				danger_level = 1
+			if island.distance >= 50:
+				danger_level = 2
 	
 	match danger_level:
 		0:
@@ -50,7 +57,7 @@ func update_islands() -> void:
 func _on_distance_changed(island, new_distance):
 	var length = $Islands.get_child_count()
 	var diff = new_distance - island.distance
-	var sub = (length/2)*diff/(length-1)
+	var sub = diff/(length-1)
 
 	for otherIsland in $Islands.get_children():
 		if otherIsland != island:

@@ -143,7 +143,6 @@ anims/connector = SubResource( 12 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
-autostart = true
 
 [connection signal="gui_input" from="Texture" to="." method="_on_TextureButton_gui_input"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

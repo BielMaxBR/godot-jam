@@ -29,6 +29,7 @@ func _ready():
 	$Level/LevelAnimation.play("level")
 	rng.randomize()
 	$Timer.wait_time = rng.randi_range(Globals.min_time, Globals.max_time)
+	$Timer.start()
 
 func _physics_process(delta: float) -> void:
 	update_distance()
@@ -64,7 +65,7 @@ func set_distance(_distance: float) -> void:
 func _on_Timer_timeout():
 	rng.randomize()
 	$Timer.wait_time = rand_range(Globals.min_time, Globals.max_time)
-
+	$Timer.start()
 	self.level += clamp(rng.randi_range(-Globals.lvl_floating, Globals.lvl_floating),-2,2)
 
 func _on_TextureButton_gui_input(event) -> void:
