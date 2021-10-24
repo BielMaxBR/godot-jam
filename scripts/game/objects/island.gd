@@ -16,6 +16,8 @@ enum ISLAND_TYPE {
 
 var island_type = ISLAND_TYPE.CIDADE setget set_island_type
 
+var last_level
+
 var ISLANDS_TEXTURE = {
 	ISLAND_TYPE.CIDADE: load("res://sprites/islands/Ilha_Cidade.png"),
 	ISLAND_TYPE.NEVE: load("res://sprites/islands/Ilha_de_Patinacao_no_Gelo.png"),
@@ -36,9 +38,11 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	update_distance()
 
-
 func update_level_textures() -> void:
 	$Level.set_animation(str(-level))
+	if last_level != level and level != 0:
+		get_node("lvl"+str(-level)).play()
+	last_level = level
 	
 func update_distance() -> void:
 	var new_distance = distance + (level * Globals.step_size)

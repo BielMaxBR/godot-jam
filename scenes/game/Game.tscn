@@ -98,7 +98,6 @@ script = ExtResource( 3 )
 [node name="Texture" type="AnimatedSprite" parent="Core"]
 frames = SubResource( 13 )
 animation = "safe"
-frame = 2
 playing = true
 
 [node name="Islands" type="Node2D" parent="Core"]

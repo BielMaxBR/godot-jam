@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://sprites/islands/Ilha_Cidade.png" type="Texture" id=1]
 [ext_resource path="res://scripts/game/objects/island.gd" type="Script" id=2]
@@ -6,6 +6,10 @@
 [ext_resource path="res://sprites/levels/-1.png" type="Texture" id=4]
 [ext_resource path="res://sprites/levels/-2.png" type="Texture" id=5]
 [ext_resource path="res://sprites/levels/1.png" type="Texture" id=6]
+[ext_resource path="res://audios/lvl-2.wav" type="AudioStream" id=7]
+[ext_resource path="res://audios/lvl2.wav" type="AudioStream" id=8]
+[ext_resource path="res://audios/lvl-1.wav" type="AudioStream" id=9]
+[ext_resource path="res://audios/lvl1.wav" type="AudioStream" id=10]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -143,6 +147,18 @@ anims/connector = SubResource( 12 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
+
+[node name="lvl1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="lvl2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="lvl-1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="lvl-2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 
 [connection signal="gui_input" from="Texture" to="." method="_on_TextureButton_gui_input"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
