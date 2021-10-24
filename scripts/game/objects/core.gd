@@ -37,11 +37,15 @@ func update_islands() -> void:
 				danger_level = 1
 			if island.distance <= -50:
 				danger_level = 2
+			if island.distance <= -70:
+				danger_level = 3
 		if island.distance > 0:
 			if island.distance >= 30:
 				danger_level = 1
 			if island.distance >= 50:
 				danger_level = 2
+			if island.distance >= 70:
+				danger_level = 3
 	
 	match danger_level:
 		0:
@@ -50,7 +54,9 @@ func update_islands() -> void:
 			$Texture.play("warning")
 		2:
 			$Texture.play("danger")
-	
+		3:
+			#perder o jogo
+			pass
 	# Just fun \/
 	angle += 0.15
 

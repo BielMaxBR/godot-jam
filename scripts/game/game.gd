@@ -12,5 +12,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	$"Menu_e_Fundo-1".position.x += 2
+	if $"Menu_e_Fundo-1".position.x == 1024:
+		$"Menu_e_Fundo-1".position.x = 0
