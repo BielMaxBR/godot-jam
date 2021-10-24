@@ -10,7 +10,8 @@ enum ISLAND_TYPE {
 	CIDADE,
 	FERIAS,
 	NEVE,
-	CASTELO
+	CASTELO,
+	COHAB
 }
 
 var island_type = ISLAND_TYPE.CIDADE setget set_island_type
@@ -19,6 +20,7 @@ var ISLANDS_TEXTURE = {
 	ISLAND_TYPE.CIDADE: load("res://sprites/islands/Ilha_Cidade.png"),
 	ISLAND_TYPE.NEVE: load("res://sprites/islands/Ilha_de_Patinacao_no_Gelo.png"),
 	ISLAND_TYPE.CASTELO: load("res://sprites/islands/Ilha_Castelo.png"),
+	ISLAND_TYPE.COHAB: load("res://sprites/islands/Ilha_de_COHAB.png"),
 	ISLAND_TYPE.FERIAS: load("res://sprites/islands/Ilha_de_Ferias.png")
 }
 
@@ -55,7 +57,7 @@ func set_island_type(_island_type: int):
 	$Texture.texture_normal = ISLANDS_TEXTURE[island_type]
 	
 func set_level(_level: int) -> void:
-	level = _level
+	level = clamp(_level,-2,2)
 	update_level_textures()
 	emit_signal("level_changed", self, level)
 
@@ -63,6 +65,7 @@ func set_distance(_distance: float) -> void:
 	distance = _distance
 
 func _on_Timer_timeout():
+	if Globals.death: return
 	rng.randomize()
 	$Timer.wait_time = rand_range(Globals.min_time, Globals.max_time)
 	$Timer.start()

@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="godot jam"
-run/main_scene="res://scenes/game/Game.tscn"
+run/main_scene="res://scenes/game/menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -7,11 +7,18 @@ var angle = 0
 # Just fun /\
 
 func _ready():
-	for i in 8:
-		add_island(randi() % 4)
+	for i in 3:
+		add_island(randi() % 5)
+
+func _draw():
+	#draw_set_transform(Vector2.ZERO,0,Vector2(1,1))
+	draw_circle(Vector2.ZERO,200,Color(1,1,1,.1))
+	draw_circle(Vector2.ZERO,200+Globals.SAFE_DISTANCE,Color(1,1,1,.1))
+	draw_circle(Vector2.ZERO,200-Globals.DANGER_DISTANCE,Color(1,.6,.2,.1))
+	draw_circle(Vector2.ZERO,200-Globals.DEATH_DISTANCE,Color(1,0,0,.1))
 
 func _physics_process(delta):
-	#if Input.is_action_just_pressed("space"):
+	if not Globals.death:
 		update_islands()
 
 func add_island(type: int) -> void:
@@ -32,20 +39,24 @@ func update_islands() -> void:
 		island.position = new_position
 		island_connector.set_point_position(1, island_connector.to_local(global_position))
 		
-		if island.distance < 0:
-			if island.distance <= -30:
+		if island.distance <= 0:
+			if island.distance <= -Globals.SAFE_DISTANCE:
 				danger_level = 1
-			if island.distance <= -50:
-				danger_level = 2
-			if island.distance <= -70:
-				danger_level = 3
+			if island.distance <= -Globals.DANGER_DISTANCE:
+				if danger_level < 2:
+					danger_level = 2
+			if island.distance <= -Globals.DEATH_DISTANCE:
+				if danger_level < 3:
+					danger_level = 3
 		if island.distance > 0:
-			if island.distance >= 30:
+			if island.distance >= Globals.SAFE_DISTANCE:
 				danger_level = 1
-			if island.distance >= 50:
-				danger_level = 2
-			if island.distance >= 70:
-				danger_level = 3
+			if island.distance >= Globals.DANGER_DISTANCE:
+				if danger_level < 2:
+					danger_level = 2
+			if island.distance >= Globals.DEATH_DISTANCE:
+				if danger_level < 3:
+					danger_level = 3
 	
 	match danger_level:
 		0:
@@ -55,8 +66,8 @@ func update_islands() -> void:
 		2:
 			$Texture.play("danger")
 		3:
-			#perder o jogo
-			pass
+			Globals.death = true
+
 	# Just fun \/
 	angle += 0.15
 

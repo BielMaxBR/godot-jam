@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprites/Titulo_.png" type="Texture" id=1]
+[ext_resource path="res://scenes/ui/scene_button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprites/Menu_e_Fundo-1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/Menu_e_Fundo-2.png" type="Texture" id=5]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back1" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back2" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="play" parent="." instance=ExtResource( 3 )]
+margin_left = 349.0
+margin_top = 371.0
+margin_right = -611.0
+margin_bottom = -165.0
+scene = "res://scenes/game/Game.tscn"
+
+[node name="tutorial" parent="." instance=ExtResource( 3 )]
+margin_left = 614.0
+margin_top = 371.0
+margin_right = -346.0
+margin_bottom = -165.0
+scene = "res://scenes/game/tutorial.tscn"
+
+[node name="titulo" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -256.0
+margin_right = 256.0
+margin_bottom = 300.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

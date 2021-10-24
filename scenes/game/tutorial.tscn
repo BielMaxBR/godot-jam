@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/ui/scene_button.tscn" type="PackedScene" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1062.0
+margin_bottom = 638.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_right = 1024.0
+margin_bottom = 31.0
+text = "Aperte os botões do mouse para controlar o gasto de energia de cada ilha, o gasto vai de -2 a 2. com o botão esquerdo diminue o gasto, e com o direito aumenta. todas as ilhas são conectadas, ou seja, se uma gasta mais energia, as outras gastam menos. quanto mais energia gastarem, mais perto do nucleo ficam, se alguma encostar no nucleo, vc perde. com o tempo mais ilhas irão aparecer e mais rápido as ilhas irão mudar de gasto. boa sorte!
+
+- Feito por Nokio, gg ez e guhh"
+autowrap = true
+
+[node name="Button" parent="." instance=ExtResource( 2 )]
+margin_left = 31.0
+margin_top = 515.0
+margin_right = -929.0
+margin_bottom = -21.0
+scene = "res://scenes/game/menu.tscn"

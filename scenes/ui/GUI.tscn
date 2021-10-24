@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/ui/Counter.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://scenes/ui/scene_button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/ui/Death.gd" type="Script" id=4]
 
 [node name="GUI" type="Control"]
 anchor_right = 1.0
@@ -8,6 +11,58 @@ anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Death" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="Death"]
+margin_left = -565.0
+margin_top = -376.0
+margin_right = 630.0
+margin_bottom = 424.0
+color = Color( 0, 0, 0, 0.658824 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Death"]
+modulate = Color( 0.678431, 0.219608, 0.219608, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -228.548
+margin_top = -180.671
+margin_right = -164.548
+margin_bottom = -116.671
+rect_scale = Vector2( 7.42207, 3.34839 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" parent="Death" instance=ExtResource( 3 )]
+margin_left = 154.421
+margin_top = 115.399
+margin_right = 178.421
+margin_bottom = 139.399
+scene = "res://scenes/game/menu.tscn"
+
+[node name="Restart" parent="Death" instance=ExtResource( 3 )]
+margin_left = -120.242
+margin_top = 112.88
+margin_right = -96.2422
+margin_bottom = 136.88
+scene = "res://scenes/game/Game.tscn"
 
 [node name="Counter" type="Label" parent="."]
 anchor_left = 0.5

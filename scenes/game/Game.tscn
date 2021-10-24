@@ -98,11 +98,12 @@ script = ExtResource( 3 )
 [node name="Texture" type="AnimatedSprite" parent="Core"]
 frames = SubResource( 13 )
 animation = "safe"
-frame = 3
+frame = 2
 playing = true
 
 [node name="Islands" type="Node2D" parent="Core"]
 
 [node name="GUI" parent="." instance=ExtResource( 6 )]
 margin_right = 1024.0
-margin_bottom = 43.0
+margin_bottom = 605.0
+mouse_filter = 2
