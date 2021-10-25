@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/ui/Counter.gd" type="Script" id=1]
 [ext_resource path="res://sprites/Restart_Button.png" type="Texture" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://sprites/Titulo_de_Derrota.png" type="Texture" id=5]
 [ext_resource path="res://sprites/Menu_Button.png" type="Texture" id=6]
 [ext_resource path="res://sprites/ARIAL.TTF" type="DynamicFontData" id=7]
+[ext_resource path="res://sprites/Timer_Flat.png" type="Texture" id=8]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 0.501961 )
 corner_radius_top_left = 20
 corner_radius_top_right = 20
@@ -16,8 +17,9 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 corner_detail = 9
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
 font_data = ExtResource( 7 )
 
 [node name="GUI" type="Control"]
@@ -28,6 +30,7 @@ __meta__ = {
 }
 
 [node name="Death" type="Control" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -37,6 +40,9 @@ margin_top = -25.3394
 margin_right = -6.69678
 margin_bottom = 14.6606
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="Death"]
 margin_left = -565.0
@@ -112,7 +118,17 @@ margin_top = 34.0
 margin_right = 576.0
 margin_bottom = 95.0
 rect_min_size = Vector2( 50, 25 )
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 444.778
+margin_top = 40.3496
+margin_right = 571.778
+margin_bottom = 88.3496
+texture = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -120,13 +136,14 @@ __meta__ = {
 [node name="Counter" type="Label" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -15.0
-margin_top = 37.0
-margin_right = 8.0
-margin_bottom = 73.0
-rect_scale = Vector2( 3, 3 )
-rect_pivot_offset = Vector2( 10.8024, -0.129135 )
-custom_fonts/font = SubResource( 1 )
+margin_left = -23.5071
+margin_top = 39.5615
+margin_right = 17.4929
+margin_bottom = 75.5615
+rect_scale = Vector2( 2.61114, 2.58312 )
+rect_pivot_offset = Vector2( 20.152, -0.188975 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 0.721569 )
 text = "0:0"
 align = 1
 script = ExtResource( 1 )

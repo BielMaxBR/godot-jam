@@ -11,7 +11,8 @@ enum ISLAND_TYPE {
 	FERIAS,
 	NEVE,
 	CASTELO,
-	COHAB
+	COHAB,
+	FABRICA
 }
 
 var island_type = ISLAND_TYPE.CIDADE setget set_island_type
@@ -23,6 +24,7 @@ var ISLANDS_TEXTURE = {
 	ISLAND_TYPE.NEVE: load("res://sprites/islands/Ilha_de_Patinacao_no_Gelo.png"),
 	ISLAND_TYPE.CASTELO: load("res://sprites/islands/Ilha_Castelo.png"),
 	ISLAND_TYPE.COHAB: load("res://sprites/islands/Ilha_de_COHAB.png"),
+	ISLAND_TYPE.FABRICA: load("res://sprites/islands/Ilha_das_Fabricas.png"),
 	ISLAND_TYPE.FERIAS: load("res://sprites/islands/Ilha_de_Ferias.png")
 }
 

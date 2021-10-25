@@ -8,7 +8,7 @@ var angle = 0
 
 func _ready():
 	for i in 3:
-		add_island(randi() % 5)
+		add_island(randi() % 6)
 
 func _draw():
 	#draw_set_transform(Vector2.ZERO,0,Vector2(1,1))

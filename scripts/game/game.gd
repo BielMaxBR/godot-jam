@@ -17,7 +17,7 @@ func _process(delta):
 		next_minute += 1
 	
 	if Globals.seconds == 30 and not added_island:
-		$Core.add_island(randi() % 5)
+		$Core.add_island(randi() % 6)
 		added_island = true
 	
 	
