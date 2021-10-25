@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://sprites/ARIAL.TTF" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/ui/scene_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/Ceu.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Menu_Button.png" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0.658824 )
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -9,25 +29,73 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_right = 1062.0
-margin_bottom = 638.0
-color = Color( 0, 0, 0, 1 )
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -483.0
+margin_top = -275.0
+margin_right = 484.0
+margin_bottom = 278.0
+custom_styles/panel = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
-margin_right = 1024.0
-margin_bottom = 31.0
-text = "Aperte os botões do mouse para controlar o gasto de energia de cada ilha, o gasto vai de -2 a 2. com o botão esquerdo diminue o gasto, e com o direito aumenta. todas as ilhas são conectadas, ou seja, se uma gasta mais energia, as outras gastam menos. quanto mais energia gastarem, mais perto do nucleo ficam, se alguma encostar no nucleo, vc perde. com o tempo mais ilhas irão aparecer e mais rápido as ilhas irão mudar de gasto. boa sorte!
-
-- Feito por Nokio, gg ez e guhh"
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -436.5
+margin_top = -244.0
+margin_right = 436.5
+margin_bottom = 244.0
+custom_fonts/font = SubResource( 1 )
+text = "Aperte os botões do mouse para controlar o gasto de energia de cada ilha, o gasto vai de -2 a 2. com o botão esquerdo diminue o gasto, e com o direito aumenta. todas as ilhas são conectadas, ou seja, se uma gasta mais energia, as outras gastam menos. quanto mais energia gastarem, mais perto do nucleo ficam, se alguma encostar no nucleo, vc perde. com o tempo mais ilhas irão aparecer e mais rápido as ilhas irão mudar de gasto. boa sorte!"
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -332.0
+margin_top = -170.0
+margin_right = 332.0
+margin_bottom = -130.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0.184314, 0.184314, 1 )
+text = "Made with <3 by: Nokio, gg ez e guhh"
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" parent="." instance=ExtResource( 2 )]
-margin_left = 31.0
-margin_top = 515.0
-margin_right = -929.0
-margin_bottom = -21.0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+margin_left = -148.0
+margin_top = -115.0
+margin_right = 148.0
+margin_bottom = -32.0
+texture_normal = ExtResource( 4 )
+expand = true
+stretch_mode = 5
 scene = "res://scenes/game/menu.tscn"
